@@ -14,7 +14,7 @@ namespace KpoLab.Lib
                 return false;
             }
 
-            if (target.AtomicNumber < 0)
+            if (target.AtomicNumber <= 0)
             {
                 return false;
             }
