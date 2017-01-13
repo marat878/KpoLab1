@@ -40,5 +40,32 @@ namespace KpoLab.Main
         {
             InitializeComponent();
         }
+
+        private void FormMetalViscosity_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+        }
+
+        private void FormMetalViscosity_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try 
+            {
+                _ActiveItem.Name = TbName.Text;
+                _ActiveItem.AtomicNumber = Int32.Parse(TbAtomicNumber.Text);
+                _ActiveItem.Temperature = Int32.Parse(TbTemperature.Text);
+                _ActiveItem.Viscosity = Double.Parse(TbViscosity.Text, System.Globalization.CultureInfo.InvariantCulture);
+
+                if (!MetalViscosityHelper.ValidateFields(_ActiveItem)) 
+                {
+                    throw new Exception("Указаны некорректные значения полей!");
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+                LogHelper.ErrorLog(ex);
+                e.Cancel = true;
+            }
+        }
     }
 }

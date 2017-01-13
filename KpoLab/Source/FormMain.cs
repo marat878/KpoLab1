@@ -30,7 +30,7 @@ namespace KpoLab.Main
         {
             try
             {
-                IDataProvider dataProvider = new MockMetalViscosityDataProvider();
+                IDataProvider dataProvider = AppGlobalSettings.DataHelpersFactory.GetDataProvider();
                 dataProvider.Execute();
 
                 _MetalViscosityList = dataProvider.GetDataList();
@@ -38,7 +38,6 @@ namespace KpoLab.Main
 
                 DgvMetalViscosity.DataSource = _BsMetalViscosityData;
             }
-            //обработка остальных исключений
             catch (Exception ex)
             {
                 LogHelper.ErrorLog(ex.Message);
@@ -54,6 +53,11 @@ namespace KpoLab.Main
                 var currentItem = (MetalViscosity) _BsMetalViscosityData.Current;
                 formMetalViscosity.SetActiveItem(currentItem);
                 formMetalViscosity.ShowDialog();
+
+                IDataSaver saver = AppGlobalSettings.DataHelpersFactory.GetDataSaver();
+                saver.Save(_MetalViscosityList);
+
+                this.Invalidate();
             }
             catch (Exception ex)
             {

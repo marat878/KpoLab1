@@ -120,6 +120,8 @@
             this.MinimizeBox = false;
             this.Name = "FormMetalViscosity";
             this.Text = "Вязкость металла в жидком состоянии";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMetalViscosity_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMetalViscosity_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

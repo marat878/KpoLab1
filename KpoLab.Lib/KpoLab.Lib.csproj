@@ -46,8 +46,15 @@
     <Compile Include="Source\DataProvider\IDataProvider.cs" />
     <Compile Include="Source\DataProvider\MetalViscosityDataProvider.cs" />
     <Compile Include="Source\DataProvider\MockMetalViscosityDataProvider.cs" />
+    <Compile Include="Source\DataSaver\MetalViscositySaver.cs" />
+    <Compile Include="Source\DataSaver\MockMetalViscositySaver.cs" />
+    <Compile Include="Source\DataSaver\IDataSaver.cs" />
+    <Compile Include="Source\Factory\DataHelpersFactory.cs" />
+    <Compile Include="Source\Factory\IDataHelpersFactory.cs" />
+    <Compile Include="Source\Factory\MockDataHelpersFactory.cs" />
     <Compile Include="Source\Log\LogHelper.cs" />
     <Compile Include="Source\Model\MetalViscosity.cs" />
+    <Compile Include="Source\Model\MetalViscosityHelper.cs" />
     <Compile Include="Source\Utility\ConfigurationUtility.cs" />
   </ItemGroup>
   <ItemGroup />
