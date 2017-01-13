@@ -5,17 +5,18 @@ using System.Text;
 
 namespace KpoLab.Lib
 {
-    public class MockMetalViscosityDataProvider
+    public class MockMetalViscosityDataProvider : IDataProvider
     {
-        private readonly string _DataFileName = "";
-
         private List<MetalViscosity> _DataList = null;
-        public List<MetalViscosity> DataList
+        public List<MetalViscosity> GetDataList()
         {
-            get 
-            {
-                return _DataList;
-            }
+            return _DataList;
+        }
+
+        private LoadStatus _Status = LoadStatus.None;
+        public LoadStatus GetStatus()
+        {
+            return _Status;
         }
 
         public MockMetalViscosityDataProvider()
@@ -48,6 +49,8 @@ namespace KpoLab.Lib
                 Temperature = 441,
                 Viscosity = 2.11
             });
+
+            _Status = LoadStatus.Success;
         }
     }
 }

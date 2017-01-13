@@ -30,10 +30,10 @@ namespace KpoLab.Main
         {
             try
             {
-                var dataProvider = new MockMetalViscosityDataProvider();
+                IDataProvider dataProvider = new MockMetalViscosityDataProvider();
                 dataProvider.Execute();
 
-                _MetalViscosityList = dataProvider.DataList;
+                _MetalViscosityList = dataProvider.GetDataList();
                 _BsMetalViscosityData.DataSource = _MetalViscosityList;
 
                 DgvMetalViscosity.DataSource = _BsMetalViscosityData;

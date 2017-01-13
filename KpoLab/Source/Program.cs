@@ -13,6 +13,8 @@ namespace KpoLab.Main
         [STAThread]
         static void Main()
         {
+            KpoLab.Lib.AppGlobalSettings.Initialize();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMain());
